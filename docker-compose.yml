@@ -1,6 +1,14 @@
 version: "3.7"
 
 services:
+  nginx:
+    image: "nginx:alpine"
+    ports:
+      - 443:443
+    volumes:
+      - ./auth:/etc/nginx/conf.d
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+
   jenkins:
     build:
       context: ./jenkins
