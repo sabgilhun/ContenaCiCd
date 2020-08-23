@@ -13,3 +13,5 @@ mkdir nginx
 mkdir registry
 
 docker run --rm --entrypoint htpasswd registry:2.6.2 -Bbn $1 $2 > auth/nginx.htpasswd
+
+docker network create global_network
