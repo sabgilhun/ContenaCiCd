@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
   nginx:
+    container_name: nginx
     image: "nginx:alpine"
     ports:
       - 443:443
@@ -10,6 +11,7 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
 
   jenkins:
+    container_name: jenkins
     build:
       context: ./jenkins
     ports:
@@ -20,6 +22,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   registry:
+    container_name: registry
     image: registry:2
     ports:
       - 5000:5000
